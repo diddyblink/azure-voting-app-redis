@@ -1,42 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-        env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: azure-vote-front
 spec:
   replicas: 1
@@ -47,7 +11,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  minReadySeconds: 5 
+  minReadySeconds: 5
   template:
     metadata:
       labels:
@@ -57,17 +21,29 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: acrrspxzo.azurecr.io/azure-vote-front:v1
         ports:
         - containerPort: 80
         resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
+          requests: { cpu: "250m" }
+          limits:   { cpu: "500m"  }
         env:
-        - name: REDIS
-          value: "azure-vote-back"
+        - name: REDIS_HOST
+          valueFrom: { secretKeyRef: { name: redis-secrets, key: REDIS_HOST } }
+        - name: REDIS_PORT
+          valueFrom: { secretKeyRef: { name: redis-secrets, key: REDIS_PORT } }
+        - name: REDIS_SSL
+          valueFrom: { secretKeyRef: { name: redis-secrets, key: REDIS_SSL } }
+        - name: REDIS_PASSWORD
+          valueFrom: { secretKeyRef: { name: redis-secrets, key: REDIS_PASSWORD } }
+        readinessProbe:
+          httpGet: { path: "/", port: 80 }
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet: { path: "/", port: 80 }
+          initialDelaySeconds: 15
+          periodSeconds: 20
 ---
 apiVersion: v1
 kind: Service
@@ -75,7 +51,8 @@ metadata:
   name: azure-vote-front
 spec:
   type: LoadBalancer
-  ports:
-  - port: 80
   selector:
     app: azure-vote-front
+  ports:
+  - port: 80
+    targetPort: 80
