@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: azure-vote-front
+  labels:
+    app: azure-vote-front
+spec:
+  to:
+    kind: Service
+    name: azure-vote-front # Deve coincidere col nome del Service nello YAML originale
+    weight: 100
+  port:
+    targetPort: 80
+  wildcardPolicy: None
