@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/diddyblink/azure-voting-app-redis.git
+    repoURL: https://github.com/diddyblink/azure-voting-app-redis/Openshift_Argo.git
     targetRevision: Openshift_Argo  
     path: .                         
   destination:
