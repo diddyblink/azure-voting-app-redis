@@ -22,7 +22,7 @@ spec:
       containers:
       - name: azure-vote-front
         image: diddyblink/azure-vote-front:latest
-        image PullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
