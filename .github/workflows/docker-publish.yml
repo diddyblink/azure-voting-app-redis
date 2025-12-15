@@ -2,9 +2,9 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ "main" ] # O il nome del tuo branch se diverso
+    branches: [ "main" ] 
     paths:
-      - 'azure-vote/**' # Parte solo se tocchi il codice dell'app
+      - 'azure-vote/**' 
 
 jobs:
   build:
