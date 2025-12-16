@@ -32,7 +32,8 @@ spec:
               name: vote-values          # The ConfigMap this value comes from.
               key: test1 # The key to fetch
         - name: VOTE2VALUE
-          configMapKeyRef:
+          valueFrom:
+            configMapKeyRef:
               name: vote-values          # The ConfigMap this value comes from.
               key: test2 # The key to fetch
         ports:
