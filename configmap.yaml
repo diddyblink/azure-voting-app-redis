@@ -4,5 +4,5 @@ metadata:
   name: vote-values
   namespace: voting-app
 data:
-  VOTE1VALUE : Pizza
-  VOTE2VALUE : Sushi  
+  VOTE1VALUE : "Pizza"
+  VOTE2VALUE : "Sushi"  
