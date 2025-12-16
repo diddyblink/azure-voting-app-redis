@@ -30,11 +30,11 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: vote-values          # The ConfigMap this value comes from.
-              key: VOTE1VALUE # The key to fetch
+              key: test1 # The key to fetch
         - name: VOTE2VALUE
           configMapKeyRef:
               name: vote-values          # The ConfigMap this value comes from.
-              key: VOTE2VALUE # The key to fetch
+              key: test2 # The key to fetch
         ports:
         - containerPort: 80
         resources:
