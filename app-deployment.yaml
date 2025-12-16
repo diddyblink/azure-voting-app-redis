@@ -25,7 +25,7 @@ spec:
         imagePullPolicy: Always
         command: [ "/bin/sh", "-c", "env" ]
         envFrom:
-        - configMapKeyRef:
+        - configMapRef:
             name: vote-values
         ports:
         - containerPort: 80
