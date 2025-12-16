@@ -23,6 +23,7 @@ spec:
       containers:
       - name: azure-vote-front
         image: diddyblink/azure-vote-front:v1
+        command: [ "/bin/echo", "$(Value1) $(Value2)" ]
         imagePullPolicy: Always
         env: 
         - name: Value1
