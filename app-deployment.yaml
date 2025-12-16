@@ -25,9 +25,9 @@ spec:
         image: diddyblink/azure-vote-front:v1
         imagePullPolicy: Always
         command: [ "/bin/sh", "-c", "env" ]
-      envFrom:
-      - configMapRef:
-          name: vote-values
+        envFrom:
+        - configMapRef:
+            name: vote-values
         ports:
         - containerPort: 80
         resources:
