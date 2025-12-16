@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vote-values
+data:
+  vote_value_1 : "Pizza"
+  vote_value_2 : "Sushi"
+  vote.values: |
+    vote-1.values= Cats, Pizza
+    vote-2.values= Dogs, Sushi  
