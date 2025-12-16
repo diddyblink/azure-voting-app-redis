@@ -24,17 +24,10 @@ spec:
       - name: azure-vote-front
         image: diddyblink/azure-vote-front:v1
         imagePullPolicy: Always
-        envFrom: 
-        - name: VOTE1VALUE
-          valueFrom:
-            configMapKeyRef:
-              name: vote-values          # The ConfigMap this value comes from.
-              key: test1 # The key to fetch
-        - name: VOTE2VALUE
-          valueFrom:
-            configMapKeyRef:
-              name: vote-values          # The ConfigMap this value comes from.
-              key: test2 # The key to fetch
+        command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+      - configMapRef:
+          name: vote-values
         ports:
         - containerPort: 80
         resources:
