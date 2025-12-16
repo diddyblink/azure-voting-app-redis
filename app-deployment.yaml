@@ -23,18 +23,18 @@ spec:
       containers:
       - name: azure-vote-front
         image: diddyblink/azure-vote-front:v1
-        command: [ "/bin/echo", "$(Value1) $(Value2)" ]
+        command: [ "/bin/echo", "$(VOTE1VALUE) $(VOTE2VALUE)" ]
         imagePullPolicy: Always
         env: 
-        - name: Value1
+        - name: VOTE1VALUE
           valueFrom:
             configMapKeyRef:
               name: vote-values          # The ConfigMap this value comes from.
-              key: vote-1.values # The key to fetch
-        - name: Value2
+              key: VOTE1VALUE # The key to fetch
+        - name: VOTE2VALUE
           configMapKeyRef:
               name: vote-values          # The ConfigMap this value comes from.
-              key: vote-2.values # The key to fetch
+              key: VOTE2VALUE # The key to fetch
         ports:
         - containerPort: 80
         resources:
