@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: vote-values
+  namespace: voting-app
 data:
   vote.values: |
     test1 = Pizza
