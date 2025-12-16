@@ -4,5 +4,5 @@ metadata:
   name: vote-values
 data:
   vote.values: |
-    vote-1.values= Pizza
-    vote-2.values= Sushi  
+    VOTE1VALUE = Pizza
+    VOTE2VALUE = Sushi  
