@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
+  name: configmap-demo-pod
 spec:
   replicas: 1
   selector:
@@ -23,6 +24,16 @@ spec:
       - name: azure-vote-front
         image: diddyblink/azure-vote-front:v1
         imagePullPolicy: Always
+        env: 
+        - name: Value1
+          valueFrom:
+            configMapKeyRef:
+              name: vote-values          # The ConfigMap this value comes from.
+              key: vote-1.values # The key to fetch
+        - name: Value2
+          configMapKeyRef:
+              name: vote-values          # The ConfigMap this value comes from.
+              key: vote-2.values # The key to fetch
         ports:
         - containerPort: 80
         resources:
