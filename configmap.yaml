@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: vote-values
 data:
-  VOTE1VALUE: "Pizza"
-  VOTE2VALUE: "Sushi"  
+  VOTE1VALUE: "Juve"
+  VOTE2VALUE: "Toro"  
