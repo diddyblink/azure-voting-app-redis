@@ -23,6 +23,13 @@ spec:
         ports:
         - containerPort: 6379
           name: redis
+        volumeMounts:
+        - name: redis-data-nfs
+          mountPath: /bitnami/redis/data
+      volumes:
+      - name: redis-data-nfs
+        persistentVolumeClaim:
+          claimName: nfs-pvc-claim
 ---
 apiVersion: v1
 kind: Service
