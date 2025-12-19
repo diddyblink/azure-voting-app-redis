@@ -7,6 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: ""
   nfs:
     server: 10.52.1.209     # L'IP che ha risposto al showmount
     path: /var/nfs          # Il path nell'export list (definito nel nfs.config)
@@ -19,6 +20,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
       storage: 10Gi
