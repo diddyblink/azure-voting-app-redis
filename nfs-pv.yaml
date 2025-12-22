@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   storageClassName: ""
   nfs:
-    server: 10.52.1.209     # L'IP che ha risposto al showmount
+    server: 192.168.122.1     # L'IP della scheda di rete che utilizza l'host per parlare con la vm crc (virbr0)
     path: /var/nfs          # Il path nell'export list (definito nel nfs.config)
   persistentVolumeReclaimPolicy: Retain
 ---
