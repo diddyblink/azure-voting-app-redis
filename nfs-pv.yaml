@@ -20,7 +20,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ""
+  storageClassName: "crc-csi-hostpath-provisioner"
   resources:
     requests:
       storage: 10Gi
