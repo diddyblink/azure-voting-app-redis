@@ -7,7 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: "crc-csi-hostpath-provisioner"
+  storageClassName: "nfs-old-provisioner"
   nfs:
     server: 192.168.122.1     # L'IP della scheda di rete che utilizza l'host per parlare con la vm crc (virbr0)
     path: /var/nfs          # Il path nell'export list (definito nel nfs.config)
@@ -20,7 +20,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: "crc-csi-hostpath-provisioner"
+  storageClassName: "nfs-old-provisioner"
   resources:
     requests:
       storage: 10Gi
