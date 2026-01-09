@@ -14,6 +14,16 @@ spec:
     spec:
       nodeSelector:
         "kubernetes.io/os": linux
+      initContainers:
+        - name: volume-permissions
+          image: busybox:latest
+          # Cambia ownership della cartella all'utente 1001 (Redis)
+          command: ['sh', '-c', 'chown -R 1001:1001 /bitnami/redis/data']
+          securityContext:
+            runAsUser: 0 # Questo gira come Root
+          volumeMounts:
+            - mountPath: /bitnami/redis/data
+              name: redis-data-storage
       containers:
       - name: azure-vote-back
         image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -25,10 +35,10 @@ spec:
           name: redis
           name: redis
         volumeMounts:
-        - name: pv-1
+        - name: redis-data-storage
           mountPath: /bitnami/redis/data
       volumes:
-      - name: pv-1
+      - name: redis-data-storage
         persistentVolumeClaim:
           claimName: pvc-1
 ---
