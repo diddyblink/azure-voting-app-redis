@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vote-values
+  namespace: voting-app-dev
+data:
+  TITLE: "Prova"
+  VOTE1VALUE: "Pippo"
+  VOTE2VALUE: "Pluto"  

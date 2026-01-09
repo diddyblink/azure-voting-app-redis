@@ -21,17 +21,8 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: diddyblink/azure-vote-front:v1
+        image: diddyblink/azure-vote-front:latest
         imagePullPolicy: Always
-#        volumeMounts:
- #   - mountPath: /my-nfs-data
-  #    name: test-volume
-#  volumes:
- # - name: test-volume
-  #  nfs:
-   #   server: my-nfs-server.example.com
-    #  path: /my-nfs-volume
-     # readOnly: true
         envFrom:
         - configMapRef:
             name: vote-values

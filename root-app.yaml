@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/diddyblink/azure-voting-app-redis' # <--- CAMBIA QUESTO
+    repoURL: 'https://github.com/diddyblink/azure-voting-app-redis.git' 
     targetRevision: HEAD
     path: app-of-apps
   destination:
