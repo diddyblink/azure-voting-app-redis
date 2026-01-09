@@ -25,7 +25,7 @@ spec:
           name: redis
           name: redis
         volumeMounts:
-        - name: redis-data-nfs
+        - name: pv-1
           mountPath: /bitnami/redis/data
       volumes:
       - name: pv-1
