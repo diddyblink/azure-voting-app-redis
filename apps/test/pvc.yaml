@@ -10,12 +10,12 @@ spec:
     requests:
       storage: 10Gi
   storageClassName: target
-  volumeName: pvc-c612fe0d-9f98-4868-9c9d-f60bc0bcbff2
+  volumeName: pvc-9cf4e1d4-c51e-4aa6-9552-e9184510ec20
 ---
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: pvc-c612fe0d-9f98-4868-9c9d-f60bc0bcbff2
+  name: pvc-9cf4e1d4-c51e-4aa6-9552-e9184510ec20
 spec:
   capacity:
     storage: 49Gi
