@@ -15,7 +15,7 @@ spec:
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: pvc-dabd2020-de47-425b-8610-43011a8e7b96
+  name: pvc-c612fe0d-9f98-4868-9c9d-f60bc0bcbff2
 spec:
   capacity:
     storage: 49Gi
