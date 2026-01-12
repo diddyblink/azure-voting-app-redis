@@ -11,7 +11,7 @@ spec:
       storage: 10Gi
   storageClassName: target
   volumeName: pvc-dabd2020-de47-425b-8610-43011a8e7b96
-  ---
+---
 kind: PersistentVolume
 apiVersion: v1
 metadata:
