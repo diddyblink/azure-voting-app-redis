@@ -11,3 +11,22 @@ spec:
       storage: 10Gi
   storageClassName: target
   volumeName: pvc-dabd2020-de47-425b-8610-43011a8e7b96
+  ---
+  kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pvc-dabd2020-de47-425b-8610-43011a8e7b96
+spec:
+  capacity:
+    storage: 49Gi
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: voting-app-test
+    name: pvc-1
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: target
+  volumeMode: Filesystem
+
+
