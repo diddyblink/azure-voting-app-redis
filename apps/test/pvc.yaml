@@ -9,4 +9,5 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: origin #dato che il provisioner di questa classe é quella di default di crc creerà il pv subito siccome bindingMode: immediate
+  storageClassName: target
+  volumeName: pvc-dabd2020-de47-425b-8610-43011a8e7b96
