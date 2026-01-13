@@ -9,6 +9,19 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: target
-
-
+  storageClassName: origin
+  volumeName: pvc-f0764018-4c36-44bb-a615-97372229f8d2
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pvc-f0764018-4c36-44bb-a615-97372229f8d2
+spec:
+  capacity:
+    storage: 49Gi
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: voting-app-test
+    name: pvc-1
