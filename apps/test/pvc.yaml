@@ -8,7 +8,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi
   storageClassName: target
   volumeName: pvc-9cf4e1d4-c51e-4aa6-9552-e9184510ec20
 ---
